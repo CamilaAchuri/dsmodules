@@ -71,7 +71,7 @@ downloadImageServer <- function(id, element = NULL, formats, lib = NULL, file_pr
 
 
 #' @export
-saveInteractive <- function(viz, filename, format = NULL, width = 660, height = 500, page_title = NULL, ...) {
+saveInteractive <- function(viz, filename, format = NULL, width = 800, height = 700, page_title = NULL, ...) {
 
   if (is.null(format)) {
     format <- tools::file_ext(filename) %||% "png"
@@ -87,7 +87,7 @@ saveInteractive <- function(viz, filename, format = NULL, width = 660, height = 
       htmlwidgets::saveWidget(widget = viz, file = paste0(filename, ".", format), title = page_title)
     }
   } else {
-    webshot2::webshot(tmp, paste0(filename, ".", format), vwidth = width, vheight = height, delay = 2)
+    webshot2::webshot(tmp, paste0(filename, ".", format), vwidth = width, vheight = height, delay = 2, cliprect = "viewport", zoom = 2)
   }
   file.copy(filename, filename)
 

@@ -23,7 +23,7 @@ server <- function(input, output, session) {
 
 
   viz_f <- reactive({
-    hg_pie(iris, var_cat = "species", var_num = "sepal_width")
+    hg_pie(iris, var_cat = "species", var_num = "sepal_width", title = "Ejemplo de descarga", subtitle = "Con titulos")
   })
 
   output$viz <- renderHighchart({
